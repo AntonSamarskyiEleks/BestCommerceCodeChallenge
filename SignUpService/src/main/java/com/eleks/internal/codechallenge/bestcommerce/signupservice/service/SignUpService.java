@@ -21,5 +21,6 @@ public class SignUpService {
         passwordService.validate(rawPassword);
 
         merchant.setPassword(passwordService.hash(rawPassword));
+        merchantRepository.save(merchant);
     }
 }

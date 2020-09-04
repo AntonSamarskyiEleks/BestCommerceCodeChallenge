@@ -98,4 +98,18 @@ public class Merchant {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Merchant{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", merchantType='" + merchantType + '\'' +
+                ", merchantName='" + merchantName + '\'' +
+                ", ownerName='" + ownerName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

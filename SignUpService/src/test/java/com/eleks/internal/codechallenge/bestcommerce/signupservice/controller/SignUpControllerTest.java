@@ -37,7 +37,7 @@ public class SignUpControllerTest {
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
                 "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -51,7 +51,7 @@ public class SignUpControllerTest {
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
                 "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -66,7 +66,7 @@ public class SignUpControllerTest {
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
                 "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -81,7 +81,7 @@ public class SignUpControllerTest {
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
                 "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -96,7 +96,7 @@ public class SignUpControllerTest {
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
                 "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -111,7 +111,7 @@ public class SignUpControllerTest {
                 "\"merchantName\": \"Anton's shop\"," +
                 "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -126,7 +126,7 @@ public class SignUpControllerTest {
                 "\"merchantType\": \"Software products\", " +
                 "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -141,7 +141,7 @@ public class SignUpControllerTest {
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
                 "\"address\": \"55 Some str., Kyiv, Ukraine\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -156,7 +156,7 @@ public class SignUpControllerTest {
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
                 "\"ownerName\": \"Anton\", " +
                 "\"phoneNumber\": \"+38(000)123-45-67\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -170,7 +170,7 @@ public class SignUpControllerTest {
         String merchant = "{\"email\" : \"anton@example.com\", \"password\": \"validPass123\", " +
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
                 "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                 .content(merchant)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())

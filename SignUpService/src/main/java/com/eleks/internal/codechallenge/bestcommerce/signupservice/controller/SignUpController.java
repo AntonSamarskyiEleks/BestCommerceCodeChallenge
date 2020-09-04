@@ -20,7 +20,7 @@ public class SignUpController {
     @Autowired
     private SignUpService signUpService;
 
-    @PostMapping(value = "/singup")
+    @PostMapping(value = "/signup")
     public ResponseEntity<String> singUp(@RequestBody @Valid Merchant merchant) {
         signUpService.signUp(merchant);
         return ResponseEntity.ok("Merchant profile created");
