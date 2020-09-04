@@ -61,6 +61,21 @@ public class SignUpControllerTest {
     }
 
     @Test
+    public void postRequestWithNotValidPasswordReturnsErrorTest() throws Exception {
+        String merchant = "{\"email\" : \"anton@example.com\", \"password\": \"123\", " +
+                "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
+                "\"ownerName\": \"Anton\", \"address\": \"55 Some str., Kyiv, Ukraine\", " +
+                "\"phoneNumber\": \"+38(000)123-45-67\"}";
+        mockMvc.perform(MockMvcRequestBuilders.post("/singup")
+                .content(merchant)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.error", Is.is("Password is not valid (should contain at least 6 alphanumeric characters)")))
+                .andExpect(MockMvcResultMatchers.content()
+                        .contentType(MediaType.APPLICATION_JSON));
+    }
+
+    @Test
     public void postRequestWithoutEmailReturnsErrorTest() throws Exception {
         String merchant = "{\"password\": \"validPass123\", " +
                 "\"merchantType\": \"Software products\", \"merchantName\": \"Anton's shop\"," +
