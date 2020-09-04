@@ -10,10 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 // TODO Anton S.: token check should be available for other microservices,
 // move impacted part to Common module (currently there are no such microservices)
@@ -29,11 +26,11 @@ public class JwtAuthenticationController {
     @Autowired
     private SignInService signInService;
 
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+    @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
-        authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+        authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 
-        final UserDetails userDetails = signInService.getUserDetails(authenticationRequest.getUsername());
+        final UserDetails userDetails = signInService.getUserDetails(authenticationRequest.getEmail());
         final String token = jwtTokenUtil.generateToken(userDetails, authenticationRequest.isLongTerm());
 
         return ResponseEntity.ok(new JwtResponse(token));
