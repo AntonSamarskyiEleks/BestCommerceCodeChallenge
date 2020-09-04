@@ -14,7 +14,8 @@ public class SignUpService {
 
     @Autowired
     PasswordService passwordService;
-    public void signUp(Merchant merchant){
+
+    public void signUp(Merchant merchant) {
         String rawPassword = merchant.getPassword();
 
         passwordService.validate(rawPassword);
