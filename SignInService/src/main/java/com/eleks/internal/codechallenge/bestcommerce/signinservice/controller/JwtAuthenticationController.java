@@ -21,7 +21,7 @@ public class JwtAuthenticationController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private JwtTokenHelper jwtTokenUtil;
+    private JwtTokenHelper jwtTokenHelper;
 
     @Autowired
     private SignInService signInService;
@@ -30,8 +30,8 @@ public class JwtAuthenticationController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
         authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
 
-        final UserDetails userDetails = signInService.getUserDetails(authenticationRequest.getEmail());
-        final String token = jwtTokenUtil.generateToken(userDetails, authenticationRequest.isLongTerm());
+        final UserDetails userDetails = signInService.loadUserByUsername(authenticationRequest.getEmail());
+        final String token = jwtTokenHelper.generateToken(userDetails, authenticationRequest.isLongTerm());
 
         return ResponseEntity.ok(new JwtResponse(token));
     }

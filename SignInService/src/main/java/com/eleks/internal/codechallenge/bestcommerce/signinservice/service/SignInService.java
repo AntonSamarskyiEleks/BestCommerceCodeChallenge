@@ -6,11 +6,13 @@ import com.eleks.internal.codechallenge.bestcommerce.common.service.PasswordServ
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SignInService {
+public class SignInService implements UserDetailsService, PasswordEncoder {
 
     @Autowired
     MerchantRepository merchantRepository;
@@ -23,7 +25,8 @@ public class SignInService {
         return passwordService.verify(user.getPassword(), password);
     }
 
-    public UserDetails getUserDetails(String email) {
+    @Override
+    public UserDetails loadUserByUsername(String email) {
         Merchant merchant = getMerchant(email);
         return User.builder()
                 .username(merchant.getEmail())
@@ -49,5 +52,15 @@ public class SignInService {
 
     private void hidePassword(Merchant merchant) {
         merchant.setPassword("******");
+    }
+
+    @Override
+    public String encode(CharSequence password) {
+        return passwordService.hash(String.valueOf(password));
+    }
+
+    @Override
+    public boolean matches(CharSequence password, String hash) {
+        return passwordService.verify(hash, String.valueOf(password));
     }
 }
