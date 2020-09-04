@@ -1,1 +1,6 @@
-main\java\com\eleks\internal\codechallenge\bestcommerce\common\Constants.class
+com\eleks\internal\codechallenge\bestcommerce\common\Constants.class
+com\eleks\internal\codechallenge\bestcommerce\common\service\impl\Argon2PasswordService.class
+com\eleks\internal\codechallenge\bestcommerce\common\util\ValidatorUtil.class
+com\eleks\internal\codechallenge\bestcommerce\common\service\PasswordService.class
+com\eleks\internal\codechallenge\bestcommerce\common\entity\Merchant.class
+com\eleks\internal\codechallenge\bestcommerce\common\repository\MerchantRepository.class
